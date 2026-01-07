@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - O'Cali Crousty</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="style-v2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Anton&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b2e 50%, #1a1a1a 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .legal-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 180px 40px 100px;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        .legal-content h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 70px;
+            color: #fff;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+        }
+        .legal-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 32px;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .legal-content p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .legal-content strong {
+            color: #ff69b4;
+            font-weight: 600;
+        }
+        .legal-content a {
+            color: #ff69b4;
+            text-decoration: underline;
+        }
+        .legal-content a:hover {
+            color: #ff8dc7;
+        }
+        .back-link {
+            display: inline-block;
+            background: var(--primary-rose);
+            color: #fff !important;
+            padding: 15px 40px;
+            text-decoration: none !important;
+            font-weight: 700;
+            border-radius: 10px;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            background: var(--dark-rose);
+            transform: translateY(-3px);
+            color: #fff !important;
+        }
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 150px 20px 80px;
+            }
+            .legal-content h1 {
+                font-size: 48px;
+            }
+            .legal-content h2 {
+                font-size: 26px;
+            }
+            .legal-content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index-v2.html">
+                    <img src="ocali-logo.png" alt="Ocalicrousty" class="logo-img">
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <a href="https://www.ubereats.com/fr-en/store/ocali-crousty-saint-brieuc/6QjbHzcNWsK3RbNxsROxnQ" target="_blank" class="btn-commander-header">
+                    COMMANDER
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Sidebar -->
+    <div class="menu-sidebar" id="menuSidebar">
+        <div class="menu-sidebar-overlay" id="menuOverlay"></div>
+        <div class="menu-sidebar-content">
+            <button class="menu-close" id="menuClose">×</button>
+
+            <nav class="sidebar-nav">
+                <a href="index-v2.html#accueil" class="sidebar-link">ACCUEIL</a>
+                <a href="menu.html" class="sidebar-link">MENU</a>
+                <a href="restaurants.html" class="sidebar-link">RESTAURANTS</a>
+                <a href="franchise.html" class="sidebar-link">FRANCHISE</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="legal-content">
+        <h1>MENTIONS LÉGALES</h1>
+
+        <h2>1. ÉDITEUR DU SITE</h2>
+        <p><strong>Nom commercial :</strong> O'Cali Crousty</p>
+        <p><strong>Site web :</strong> www.ocalicrousty.fr</p>
+        <p><strong>Email :</strong> contact@ocalicrousty.fr</p>
+
+        <h2>2. HÉBERGEMENT</h2>
+        <p><strong>Le site O'Cali Crousty est hébergé par :</strong> [À COMPLÉTER]</p>
+
+        <h2>3. PROPRIÉTÉ INTELLECTUELLE</h2>
+        <p>L'ensemble du contenu de ce site (textes, images, logo) est la propriété exclusive de O'Cali Crousty. Toute reproduction sans autorisation est interdite.</p>
+
+        <h2>4. DONNÉES PERSONNELLES</h2>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles.</p>
+        <p>Pour exercer vos droits : <strong>contact@ocalicrousty.fr</strong></p>
+        <p>Réclamation CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+
+        <h2>5. COOKIES</h2>
+        <p>Le site utilise des cookies pour améliorer votre expérience et réaliser des statistiques (Google Analytics). Vous pouvez les désactiver depuis les paramètres de votre navigateur.</p>
+
+        <p style="margin-top: 50px; text-align: center; font-size: 14px; opacity: 0.5;">
+            Dernière mise à jour : Janvier 2026
+        </p>
+
+        <div style="text-align: center;">
+            <a href="index-v2.html" class="back-link">RETOUR À L'ACCUEIL</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Robots.txt pour O'Cali Crousty
+# Permet aux moteurs de recherche d'indexer toutes les pages
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.ocalicrousty.fr/sitemap.xml
+
+# Empêcher l'indexation de certains fichiers (optionnel)
+Disallow: /script.js
+Disallow: /script-menu.js
+Disallow: /script-restaurants.js
+Disallow: /script-franchise.js

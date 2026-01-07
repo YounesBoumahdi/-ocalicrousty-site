@@ -1,0 +1,1841 @@
+/* ========================================
+   FRANCHISE PAGE - Style Ocalicrousty
+   Based on Crousty One design with rose/black color scheme
+   ======================================== */
+
+:root {
+    --primary-rose: #EC4899;
+    --dark-rose: #DB2777;
+    --light-rose: #F9A8D4;
+    --white: #ffffff;
+    --black: #000000;
+    --text-dark: #1a1a1a;
+    --block-gap: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background: linear-gradient(180deg, #F9A8D4 0%, #EC4899 15%, #DB2777 30%, #ffffff 45%);
+    min-height: 100vh;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    z-index: 1000;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 160px;
+    width: auto;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-commander-header {
+    transform: skewX(-10deg);
+    background: var(--white);
+    color: var(--primary-rose);
+    padding: 14px 45px;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-commander-header:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: skewX(-10deg) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    padding: 14px 20px;
+    background: var(--white);
+    transform: skewX(-15deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: var(--black);
+    transform: skewX(-15deg) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background: var(--primary-rose);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+    background: var(--white);
+}
+
+/* ========================================
+   MENU SIDEBAR
+   ======================================== */
+
+.menu-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.menu-sidebar.active {
+    pointer-events: all;
+}
+
+.menu-sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.4s ease;
+    pointer-events: none;
+}
+
+.menu-sidebar.active .menu-sidebar-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: all;
+}
+
+.menu-sidebar-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    max-width: 85%;
+    height: 100%;
+    background: linear-gradient(135deg, #DB2777 0%, #EC4899 100%);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.menu-sidebar.active .menu-sidebar-content {
+    transform: translateX(0);
+}
+
+.menu-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    color: var(--white);
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+    transform: rotate(90deg);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 120px;
+}
+
+.sidebar-link {
+    font-family: 'Anton', sans-serif;
+    font-size: 56px;
+    color: var(--white);
+    text-decoration: none;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    letter-spacing: -1px;
+    position: relative;
+    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+    line-height: 1;
+}
+
+.sidebar-link:hover {
+    padding-left: 20px;
+    color: var(--black);
+    text-shadow: 6px 6px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   FLOATING STICKERS - FRANCHISE PAGE
+   ======================================== */
+
+.floating-sticker {
+    position: absolute;
+    animation: floatRotate 8s ease-in-out infinite;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes floatRotate {
+    0%, 100% {
+        transform: translateY(0px) rotate(-8deg);
+    }
+    50% {
+        transform: translateY(-40px) rotate(8deg);
+    }
+}
+
+@keyframes floatBounce {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-25px) scale(1.05);
+    }
+}
+
+.sticker-poulet-franchise {
+    width: 200px;
+    top: 180px;
+    right: 120px;
+    animation: floatRotate 7.5s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.sticker-panda-franchise {
+    width: 180px;
+    bottom: 100px;
+    left: 100px;
+    animation: floatBounce 6.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.sticker-sauce-franchise-hero {
+    width: 110px;
+    top: 220px;
+    left: 140px;
+    animation: floatRotate 8.5s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.floating-sticker:hover {
+    animation-play-state: paused;
+    transform: scale(1.3) rotate(15deg) !important;
+    filter: drop-shadow(0 20px 50px rgba(236, 72, 153, 0.6));
+    cursor: pointer;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: bounceDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(15px);
+        opacity: 0.7;
+    }
+}
+
+.scroll-arrows {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(236, 72, 153, 0.5));
+}
+
+/* ========================================
+   FRANCHISE HERO
+   ======================================== */
+
+.franchise-hero {
+    padding: 220px 40px 100px;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.franchise-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.franchise-subtitle-cursive {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.franchise-title-mega {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(70px, 10vw, 140px);
+    color: var(--white);
+    line-height: 0.95;
+    margin-bottom: 40px;
+    letter-spacing: -2px;
+    text-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.2s ease-out 0.3s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.franchise-description {
+    font-size: 20px;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 60px;
+    font-weight: 300;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out 0.6s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.franchise-stats {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: scaleIn 0.8s ease-out backwards;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:nth-child(1) {
+    animation-delay: 0.9s;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 1.1s;
+}
+
+.stat-item:nth-child(3) {
+    animation-delay: 1.3s;
+}
+
+.stat-item:hover {
+    transform: scale(1.15) rotate(-2deg);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.stat-number {
+    font-family: 'Anton', sans-serif;
+    font-size: 80px;
+    color: var(--white);
+    line-height: 1;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   CONCEPT SECTION
+   ======================================== */
+
+.concept-section {
+    padding: 120px 40px;
+    background: var(--white);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container-small {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.section-title-big {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 8vw, 100px);
+    color: var(--primary-rose);
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    line-height: 0.95;
+}
+
+.section-title-big.white {
+    color: var(--white);
+}
+
+.concept-subtitle {
+    font-size: 32px;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.concept-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.concept-highlight {
+    background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.1);
+    transition: all 0.3s ease;
+}
+
+.concept-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(236, 72, 153, 0.2);
+}
+
+.highlight-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.concept-highlight h4 {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    color: var(--primary-rose);
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.concept-highlight p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   ACCOMPAGNEMENT SECTION
+   ======================================== */
+
+.accompagnement-section {
+    padding: 120px 40px;
+    background: linear-gradient(135deg, #FDF2F8 0%, #F9A8D4 100%);
+}
+
+.section-title-center {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 8vw, 100px);
+    color: var(--primary-rose);
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.section-subtitle-center {
+    font-size: 24px;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: 300;
+}
+
+.section-subtitle-center.white {
+    color: var(--white);
+}
+
+.accompagnement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.accomp-card {
+    background: var(--white);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.accomp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.accomp-card:hover::before {
+    left: 100%;
+}
+
+.accomp-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 70px rgba(236, 72, 153, 0.3);
+    border: 2px solid var(--light-rose);
+}
+
+.accomp-number {
+    font-family: 'Anton', sans-serif;
+    font-size: 80px;
+    color: var(--light-rose);
+    line-height: 1;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.accomp-card:hover .accomp-number {
+    color: var(--primary-rose);
+    transform: scale(1.2) rotate(-10deg);
+    text-shadow: 3px 3px 15px rgba(236, 72, 153, 0.5);
+}
+
+.accomp-card h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    color: var(--primary-rose);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.accomp-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   INVESTISSEMENT SECTION
+   ======================================== */
+
+.investissement-section {
+    padding: 120px 40px;
+    background: linear-gradient(135deg, #DB2777 0%, #EC4899 50%, #F97316 100%);
+    position: relative;
+}
+
+.invest-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.invest-intro {
+    font-size: 24px;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 80px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.invest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.invest-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.invest-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+}
+
+.invest-label {
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.invest-value {
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+    color: var(--white);
+    line-height: 1;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.invest-note {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    border-left: 5px solid var(--white);
+}
+
+.invest-note p {
+    font-size: 16px;
+    color: var(--white);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* ========================================
+   PROFIL SECTION
+   ======================================== */
+
+.profil-section {
+    padding: 120px 40px;
+    background: var(--white);
+}
+
+.profil-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.profil-card {
+    background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.15);
+    transition: all 0.3s ease;
+}
+
+.profil-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(236, 72, 153, 0.25);
+}
+
+.profil-card h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    color: var(--primary-rose);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.profil-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   CONTACT FRANCHISE SECTION
+   ======================================== */
+
+.contact-franchise-section {
+    padding: 120px 40px 220px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #DB2777 100%);
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.form-subtitle-cursive {
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    color: #FDE047;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.franchise-form {
+    max-width: 800px;
+    margin: 50px auto 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 60px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 18px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+}
+
+.form-group input::placeholder,
+.form-group select,
+.form-group textarea::placeholder {
+    color: rgba(26, 26, 26, 0.6);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-rose);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn-submit-franchise {
+    width: 100%;
+    transform: skewX(-10deg);
+    background: var(--white);
+    color: var(--primary-rose);
+    padding: 20px 50px;
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-submit-franchise::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-rose) 0%, var(--dark-rose) 100%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.btn-submit-franchise:hover::before {
+    width: 400%;
+    height: 400%;
+}
+
+.btn-submit-franchise:hover {
+    color: var(--white) !important;
+    transform: skewX(-10deg) translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(236, 72, 153, 0.5);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    position: relative;
+    background: linear-gradient(180deg, #EC4899 0%, #EC4899 25%, #EA479A 45%, #E8469B 65%, #E6459C 85%, #E4449D 100%);
+    color: var(--white);
+    padding: 0;
+    margin-top: 0;
+}
+
+.wave-container {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+.wave-parallax use {
+    animation: wave-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.wave-parallax use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    opacity: 0.3;
+}
+
+.wave-parallax use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    opacity: 0.5;
+}
+
+.wave-parallax use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    opacity: 0.7;
+}
+
+.wave-parallax use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    opacity: 1;
+}
+
+.footer-main {
+    position: relative;
+    z-index: 2;
+    padding: 100px 0 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo-col {
+    align-items: flex-start;
+}
+
+.footer-logo {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: var(--white);
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: 400;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-links li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links li a:hover {
+    color: var(--black);
+    transform: translateX(5px);
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-rose);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon:hover {
+    background: var(--white);
+    transform: translateY(-8px) scale(1.15);
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.4);
+}
+
+.social-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--primary-rose);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover svg {
+    fill: var(--dark-rose);
+    transform: scale(1.1);
+}
+
+.social-icon-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover .social-icon-img {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   RESPONSIVE - Mobile First comme Crousty One
+   ======================================== */
+
+/* Tablet landscape - 1024px */
+@media (max-width: 1024px) {
+    .franchise-title-mega {
+        font-size: 110px;
+    }
+
+    .section-title-big {
+        font-size: 80px;
+    }
+
+    .section-title-center {
+        font-size: 80px;
+    }
+
+    .concept-grid {
+        gap: 65px;
+    }
+}
+
+/* Medium screens - 968px */
+@media (max-width: 968px) {
+    .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .franchise-stats {
+        gap: 50px;
+    }
+
+    .stat-number {
+        font-size: 60px;
+    }
+
+    .accompagnement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .invest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profil-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .franchise-form {
+        padding: 50px 35px;
+    }
+
+    /* Hide decorative elements */
+    .floating-sticker,
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* Tablet portrait - 768px */
+@media (max-width: 768px) {
+    /* Navigation mobile */
+    .nav-container {
+        padding: 8px 20px;
+    }
+
+    .logo-img {
+        height: 90px;
+    }
+
+    .btn-commander-header {
+        padding: 10px 25px;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    .hamburger {
+        padding: 10px 16px;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        width: 26px;
+        height: 2.5px;
+    }
+
+    /* Menu sidebar mobile */
+    .sidebar-link {
+        font-size: 42px;
+        padding: 15px 0;
+    }
+
+    .menu-sidebar-content {
+        padding: 30px 25px;
+    }
+
+    .sidebar-nav {
+        margin-top: 100px;
+    }
+
+    /* Franchise hero mobile */
+    .franchise-hero {
+        padding: 170px 20px 80px;
+        min-height: 85vh;
+    }
+
+    .franchise-subtitle-cursive {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+
+    .franchise-title-mega {
+        font-size: 62px;
+        letter-spacing: -1.5px;
+        margin-bottom: 35px;
+    }
+
+    .franchise-description {
+        font-size: 17px;
+        margin-bottom: 50px;
+    }
+
+    .franchise-stats {
+        gap: 45px;
+        margin-top: 50px;
+    }
+
+    .stat-number {
+        font-size: 64px;
+    }
+
+    .stat-label {
+        font-size: 16px;
+    }
+
+    /* Sections mobile */
+    .concept-section,
+    .accompagnement-section,
+    .profil-section {
+        padding: 90px 20px;
+    }
+
+    .contact-franchise-section {
+        padding: 90px 20px 220px;
+    }
+
+    .investissement-section {
+        padding: 90px 20px;
+    }
+
+    /* Titles mobile */
+    .section-title-big {
+        font-size: 54px;
+        margin-bottom: 18px;
+    }
+
+    .section-title-center {
+        font-size: 54px;
+        margin-bottom: 18px;
+    }
+
+    .section-subtitle-center {
+        font-size: 21px;
+        margin-bottom: 65px;
+    }
+
+    .concept-subtitle {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .concept-text {
+        font-size: 17px;
+        margin-bottom: 18px;
+    }
+
+    /* Cards mobile */
+    .concept-highlight {
+        padding: 35px 30px;
+        border-radius: 18px;
+        margin-bottom: 25px;
+    }
+
+    .highlight-icon {
+        font-size: 55px;
+        margin-bottom: 18px;
+    }
+
+    .concept-highlight h4 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .concept-highlight p {
+        font-size: 15px;
+    }
+
+    .accomp-card {
+        padding: 45px 35px;
+        border-radius: 18px;
+    }
+
+    .accomp-number {
+        font-size: 70px;
+        margin-bottom: 18px;
+    }
+
+    .accomp-card h3 {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .accomp-card p {
+        font-size: 15px;
+    }
+
+    /* Investissement mobile */
+    .invest-intro {
+        font-size: 21px;
+        margin-bottom: 70px;
+    }
+
+    .invest-item {
+        padding: 45px 35px;
+        border-radius: 18px;
+    }
+
+    .invest-label {
+        font-size: 17px;
+        margin-bottom: 18px;
+    }
+
+    .invest-value {
+        font-size: 44px;
+    }
+
+    .invest-note {
+        padding: 35px 30px;
+        border-radius: 12px;
+    }
+
+    .invest-note p {
+        font-size: 15px;
+    }
+
+    /* Profil mobile */
+    .profil-card {
+        padding: 45px 35px;
+        border-radius: 18px;
+    }
+
+    .profil-card h3 {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+
+    .profil-card p {
+        font-size: 15px;
+    }
+
+    /* Form mobile */
+    .form-subtitle-cursive {
+        font-size: 36px;
+        margin-bottom: 22px;
+    }
+
+    .franchise-form {
+        padding: 45px 30px;
+        border-radius: 18px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 17px 23px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .form-group textarea {
+        min-height: 140px;
+    }
+
+    .btn-submit-franchise {
+        padding: 19px 45px;
+        font-size: 23px;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    /* Footer mobile */
+    /* Section avant footer */
+    .contact-franchise-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #C2185B 85%, #D81B60 100%) !important;
+        padding-bottom: 140px !important;
+    }
+
+    .wave-container {
+        top: -120px;
+        height: 150px;
+    }
+
+    .waves {
+        height: 150px;
+    }
+
+    .wave-parallax use:nth-child(1) {
+        fill: rgba(216, 27, 96, 0.6) !important;
+    }
+
+    .wave-parallax use:nth-child(2) {
+        fill: rgba(219, 39, 119, 0.75) !important;
+    }
+
+    .wave-parallax use:nth-child(3) {
+        fill: rgba(236, 72, 153, 0.85) !important;
+    }
+
+    .wave-parallax use:nth-child(4) {
+        fill: #EC4899 !important;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .footer-main {
+        padding: 80px 20px 40px;
+    }
+
+    .footer-logo {
+        max-height: 130px;
+    }
+
+    .footer-title {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+
+    .footer-links li a {
+        font-size: 16px;
+    }
+
+    .footer-social {
+        gap: 18px;
+    }
+
+    .social-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .social-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .social-icon-img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+    /* Navigation très petit mobile */
+    .nav-container {
+        padding: 8px 15px;
+    }
+
+    .logo-img {
+        height: 70px;
+    }
+
+    .btn-commander-header {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .hamburger {
+        padding: 8px 14px;
+        gap: 4px;
+    }
+
+    .hamburger span {
+        width: 24px;
+        height: 2px;
+    }
+
+    /* Menu sidebar très petit */
+    .sidebar-link {
+        font-size: 36px;
+        padding: 12px 0;
+    }
+
+    .menu-close {
+        width: 45px;
+        height: 45px;
+        font-size: 45px;
+        top: 25px;
+        right: 25px;
+    }
+
+    /* Franchise hero très petit */
+    .franchise-hero {
+        padding: 150px 15px 70px;
+        min-height: 80vh;
+    }
+
+    .franchise-subtitle-cursive {
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+
+    .franchise-title-mega {
+        font-size: 48px;
+        letter-spacing: -1px;
+        margin-bottom: 28px;
+    }
+
+    .franchise-description {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .franchise-stats {
+        gap: 35px;
+        margin-top: 40px;
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-size: 56px;
+    }
+
+    .stat-label {
+        font-size: 15px;
+    }
+
+    /* Sections très petit */
+    .concept-section,
+    .accompagnement-section,
+    .profil-section,
+    .contact-franchise-section {
+        padding: 70px 15px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #C2185B 85%, #D81B60 100%) !important;
+        padding-bottom: 120px !important;
+    }
+
+    /* Footer très petit */
+    .wave-container {
+        top: -100px;
+        height: 130px;
+    }
+
+    .waves {
+        height: 130px;
+    }
+
+    .wave-parallax use:nth-child(1) {
+        fill: rgba(216, 27, 96, 0.6) !important;
+    }
+
+    .wave-parallax use:nth-child(2) {
+        fill: rgba(219, 39, 119, 0.75) !important;
+    }
+
+    .wave-parallax use:nth-child(3) {
+        fill: rgba(236, 72, 153, 0.85) !important;
+    }
+
+    .wave-parallax use:nth-child(4) {
+        fill: #EC4899 !important;
+    }
+
+    .investissement-section {
+        padding: 70px 15px;
+    }
+
+    /* Titles très petit */
+    .section-title-big {
+        font-size: 44px;
+        margin-bottom: 16px;
+    }
+
+    .section-title-center {
+        font-size: 44px;
+        margin-bottom: 16px;
+    }
+
+    .section-subtitle-center {
+        font-size: 19px;
+        margin-bottom: 55px;
+    }
+
+    .concept-subtitle {
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .concept-text {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    /* Cards très petit */
+    .concept-highlight {
+        padding: 30px 25px;
+        margin-bottom: 22px;
+    }
+
+    .highlight-icon {
+        font-size: 50px;
+        margin-bottom: 16px;
+    }
+
+    .concept-highlight h4 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .concept-highlight p {
+        font-size: 14px;
+    }
+
+    .accomp-card {
+        padding: 40px 28px;
+    }
+
+    .accomp-number {
+        font-size: 65px;
+        margin-bottom: 16px;
+    }
+
+    .accomp-card h3 {
+        font-size: 26px;
+        margin-bottom: 16px;
+    }
+
+    .accomp-card p {
+        font-size: 14px;
+    }
+
+    /* Investissement très petit */
+    .invest-intro {
+        font-size: 19px;
+        margin-bottom: 60px;
+    }
+
+    .invest-item {
+        padding: 40px 30px;
+    }
+
+    .invest-label {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .invest-value {
+        font-size: 40px;
+    }
+
+    .invest-note {
+        padding: 30px 25px;
+    }
+
+    .invest-note p {
+        font-size: 14px;
+    }
+
+    /* Profil très petit */
+    .profil-card {
+        padding: 40px 28px;
+    }
+
+    .profil-card h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .profil-card p {
+        font-size: 14px;
+    }
+
+    /* Form très petit */
+    .franchise-form {
+        padding: 40px 25px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+
+    .form-group textarea {
+        min-height: 110px;
+    }
+
+    .btn-submit-franchise {
+        padding: 16px 40px;
+        font-size: 20px;
+        margin-top: 16px;
+    }
+
+    /* Footer très petit */
+    .footer-main {
+        padding: 60px 15px 35px;
+    }
+
+    .footer-content {
+        gap: 40px;
+    }
+
+    .footer-logo {
+        max-height: 110px;
+    }
+
+    .footer-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        gap: 12px;
+    }
+
+    .footer-links li a {
+        font-size: 15px;
+    }
+
+    .social-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .social-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .social-icon-img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Très petit mobile - 360px */
+@media (max-width: 360px) {
+    .franchise-title-mega {
+        font-size: 40px;
+    }
+
+    .section-title-big {
+        font-size: 38px;
+    }
+
+    .section-title-center {
+        font-size: 38px;
+    }
+
+    .sidebar-link {
+        font-size: 32px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+    }
+}
+
+/* ========================================
+   ADDITIONAL ANIMATIONS
+   ======================================== */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animate titles on scroll */
+.section-title-center {
+    animation: slideInLeft 1s ease-out;
+}
+
+.section-subtitle-center {
+    animation: slideInRight 1s ease-out 0.2s backwards;
+}
+
+/* Panda hover effect */
+.floating-panda:hover {
+    animation-play-state: paused;
+    transform: scale(1.2) rotate(0deg) !important;
+    filter: drop-shadow(0 15px 40px rgba(236, 72, 153, 0.5));
+    cursor: pointer;
+}
+
+/* Form inputs animation */
+.form-group {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.form-row {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.form-row:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-row:nth-child(2) {
+    animation-delay: 0.2s;
+}
