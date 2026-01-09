@@ -40,23 +40,25 @@ body {
     filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
     z-index: 5;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
 }
 
 @keyframes floatRotate {
     0%, 100% {
-        transform: translateY(0px) rotate(-8deg);
+        transform: translate3d(0, 0, 0) rotate(-8deg);
     }
     50% {
-        transform: translateY(-40px) rotate(8deg);
+        transform: translate3d(0, -40px, 0) rotate(8deg);
     }
 }
 
 @keyframes floatBounce {
     0%, 100% {
-        transform: translateY(0px) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
     }
     50% {
-        transform: translateY(-25px) scale(1.05);
+        transform: translate3d(0, -25px, 0) scale(1.05);
     }
 }
 
@@ -472,6 +474,7 @@ body {
     transform: translateX(15%);
     animation: floatCrousty 3s ease-in-out infinite, pulseGlow 2s ease-in-out infinite alternate;
     filter: brightness(1.1) contrast(1.05) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    will-change: transform, filter;
 }
 
 @keyframes floatCrousty {
@@ -1989,6 +1992,19 @@ body {
     .scroll-indicator,
     .arrow-link {
         display: none;
+    }
+
+    /* Désactiver animations lourdes sur mobile */
+    .hero-bg-img {
+        animation: none !important;
+    }
+
+    .hero-bg::after {
+        animation: none !important;
+    }
+
+    .wave-parallax use {
+        animation-duration: 30s !important;
     }
 }
 

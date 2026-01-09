@@ -38,31 +38,37 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// NAVBAR SCROLL EFFECT - Hide on scroll down, show on scroll up
+// NAVBAR SCROLL EFFECT - Hide on scroll down, show on scroll up (Optimisé)
 // ========================================
 
 const navbar = document.querySelector('.navbar');
 let lastScrollTop = 0;
 let scrollThreshold = 100;
+let navbarTicking = false;
 
-window.addEventListener('scroll', () => {
+function updateNavbar() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > scrollThreshold) {
         if (scrollTop > lastScrollTop) {
-            // Scroll down - hide navbar
-            navbar.style.transform = 'translateY(-100%)';
+            navbar.style.transform = 'translate3d(0, -100%, 0)';
         } else {
-            // Scroll up - show navbar
-            navbar.style.transform = 'translateY(0)';
+            navbar.style.transform = 'translate3d(0, 0, 0)';
         }
     } else {
-        // Top of page - show navbar
-        navbar.style.transform = 'translateY(0)';
+        navbar.style.transform = 'translate3d(0, 0, 0)';
     }
 
     lastScrollTop = scrollTop;
-});
+    navbarTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!navbarTicking) {
+        window.requestAnimationFrame(updateNavbar);
+        navbarTicking = true;
+    }
+}, { passive: true });
 
 // ========================================
 // SMOOTH SCROLL
@@ -267,19 +273,33 @@ if (btnCommanderModal) {
 }
 
 // ========================================
-// PARALLAX HERO
+// PARALLAX HERO - Optimisé avec requestAnimationFrame
 // ========================================
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
+let ticking = false;
+let lastScrollY = 0;
+
+function updateParallax() {
+    const scrolled = lastScrollY;
     const heroContent = document.querySelector('.hero-content');
     const heroImage = document.querySelector('.hero-image');
 
     if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+        heroContent.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0)`;
         if (heroImage) {
-            heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
+            heroImage.style.transform = `translate3d(0, ${scrolled * 0.2}px, 0)`;
         }
+    }
+
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    lastScrollY = window.pageYOffset;
+
+    if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
     }
 });
 

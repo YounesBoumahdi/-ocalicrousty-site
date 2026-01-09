@@ -22,9 +22,14 @@
     <meta property="twitter:image" content="https://www.ocalicrousty.fr/ban.png">
 
     <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="crousty-poulet-v2.jpg" as="image">
+    <link rel="preload" href="style-v2.css" as="style">
 
     <link rel="stylesheet" href="style-v2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +76,7 @@
     <section class="hero" id="accueil">
         <!-- Image de fond -->
         <div class="hero-bg">
-            <img src="crousty-poulet-v2.png" alt="Ocalicrousty" class="hero-bg-img" loading="lazy">
+            <img src="crousty-poulet-v2.jpg" alt="Ocalicrousty" class="hero-bg-img" loading="lazy">
             <div class="hero-overlay"></div>
         </div>
 
@@ -142,7 +147,7 @@
                 <a href="/menu" class="btn-voir-menu">VOIR LA CARTE</a>
             </div>
             <div class="menu-right">
-                <img src="ban.png" alt="Menu Ocalicrousty" class="menu-img" loading="lazy">
+                <img src="ban.jpg" alt="Menu Ocalicrousty" class="menu-img" loading="lazy">
             </div>
         </div>
 
@@ -240,6 +245,6 @@
 
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
