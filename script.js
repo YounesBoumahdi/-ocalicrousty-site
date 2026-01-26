@@ -304,15 +304,68 @@ window.addEventListener('scroll', () => {
 });
 
 // ========================================
-// LOADING ANIMATION
+// LOADING ANIMATION & PAGE VISIBILITY
 // ========================================
 
 window.addEventListener('load', () => {
+    // Smooth fade in
     document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
+    document.body.style.transition = 'opacity 0.4s ease';
+
+    requestAnimationFrame(() => {
         document.body.style.opacity = '1';
-    }, 100);
+    });
+
+    // Si on arrive sur la page avec un hash, scroll vers la section
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                const offset = 100;
+                const targetPosition = target.offsetTop - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300);
+    }
+});
+
+// ========================================
+// AMÉLIORATION VISIBILITÉ - S'assurer que le contenu est visible
+// ========================================
+
+// Vérifier si un élément est dans le viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top < window.innerHeight &&
+        rect.bottom > 0
+    );
+}
+
+// Animation d'entrée pour les sections
+const sections = document.querySelectorAll('section');
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+sections.forEach(section => {
+    if (!section.classList.contains('hero')) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        sectionObserver.observe(section);
+    }
 });
 
 // ========================================

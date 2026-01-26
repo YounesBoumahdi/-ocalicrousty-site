@@ -11,6 +11,10 @@
     --black: #000000;
     --text-dark: #1a1a1a;
     --text-gray: #666;
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(236, 72, 153, 0.25);
+    --shadow-strong: 0 15px 50px rgba(236, 72, 153, 0.4);
 }
 
 * {
@@ -21,6 +25,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -28,6 +33,21 @@ body {
     color: var(--text-dark);
     background: var(--white);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible pour accessibilité */
+:focus-visible {
+    outline: 3px solid var(--primary-rose);
+    outline-offset: 3px;
+}
+
+/* Amélioration du scroll sur iOS */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 /* ========================================
@@ -1680,12 +1700,17 @@ body {
     .hero-content {
         width: 100%;
         padding-top: 130px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-subtitle-cursive {
         font-size: 32px;
         margin-top: 0;
         margin-bottom: 8px;
+        text-align: center;
     }
 
     .hero-title-mega {
@@ -1693,18 +1718,25 @@ body {
         letter-spacing: -2px;
         margin-bottom: 15px;
         line-height: 0.95;
+        text-align: center;
     }
 
     .hero-description {
         font-size: 17px;
         line-height: 1.65;
         margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .hero-description br {
+        display: none;
     }
 
     .btn-commander-hero {
         padding: 18px 40px;
         font-size: 16px;
         width: 100%;
+        max-width: 320px;
         text-align: center;
     }
 
@@ -1713,23 +1745,39 @@ body {
         padding: 80px 20px;
     }
 
+    .franchise-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .franchise-subtitle-cursive {
         font-size: 42px;
+        text-align: center;
     }
 
     .franchise-title-mega {
         font-size: 52px;
         margin-bottom: 30px;
+        text-align: center;
     }
 
     .franchise-description {
         font-size: 17px;
         margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .franchise-description br {
+        display: none;
     }
 
     .franchise-stats {
         gap: 40px;
         margin-bottom: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .stat-number {
@@ -1744,6 +1792,7 @@ body {
         padding: 16px 45px;
         font-size: 17px;
         width: 100%;
+        max-width: 320px;
     }
 
     /* Menu section mobile */
@@ -1760,22 +1809,32 @@ body {
     .menu-left {
         padding-right: 0;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .menu-title {
         font-size: 52px;
         margin-bottom: 20px;
+        text-align: center;
     }
 
     .menu-description {
         font-size: 17px;
         margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .menu-description br {
+        display: none;
     }
 
     .btn-voir-menu {
         padding: 15px 40px;
         font-size: 16px;
         width: 100%;
+        max-width: 300px;
     }
 
     /* Swiper cards mobile */
@@ -1822,26 +1881,41 @@ body {
         padding: 80px 20px 140px;
     }
 
+    .restaurants-header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .restaurants-subtitle-cursive {
         font-size: 32px;
+        text-align: center;
     }
 
     .restaurants-title-mega {
         font-size: 48px;
         line-height: 1.1;
         margin-bottom: 25px;
+        text-align: center;
     }
 
     .restaurants-description {
         font-size: 17px;
         line-height: 1.65;
         margin-bottom: 35px;
+        text-align: center;
+    }
+
+    .restaurants-description br {
+        display: none;
     }
 
     .btn-voir-plus-restos {
         padding: 18px 40px;
         font-size: 16px;
         width: 100%;
+        max-width: 320px;
         margin-bottom: 50px;
         position: relative;
         z-index: 10;
@@ -1945,6 +2019,15 @@ body {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 50px;
+        text-align: center;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+
+    .footer-logo-col {
+        align-items: center;
     }
 
     .footer-main {
@@ -1958,10 +2041,16 @@ body {
     .footer-title {
         font-size: 32px;
         margin-bottom: 25px;
+        text-align: center;
     }
 
     .footer-links {
         gap: 15px;
+        align-items: center;
+    }
+
+    .footer-links li {
+        text-align: center;
     }
 
     .footer-links li a {
@@ -1970,6 +2059,7 @@ body {
 
     .footer-social {
         gap: 18px;
+        justify-content: center;
     }
 
     .social-icon {
@@ -2067,28 +2157,37 @@ body {
         padding: 30px 15px 25px;
     }
 
+    .hero-content {
+        padding-top: 110px;
+        text-align: center;
+    }
+
     .hero-subtitle-cursive {
-        font-size: 28px;
+        font-size: 26px;
         margin-top: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
+        text-align: center;
     }
 
     .hero-title-mega {
-        font-size: 44px;
+        font-size: 42px;
         letter-spacing: -1.5px;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
         line-height: 0.95;
+        text-align: center;
     }
 
     .hero-description {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.6;
-        margin-bottom: 28px;
+        margin-bottom: 25px;
+        text-align: center;
     }
 
     .btn-commander-hero {
         padding: 16px 35px;
         font-size: 15px;
+        max-width: 280px;
     }
 
     .panda-restaurants-right {

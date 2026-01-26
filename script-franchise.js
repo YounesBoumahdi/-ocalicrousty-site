@@ -59,46 +59,88 @@ window.addEventListener('scroll', () => {
 });
 
 // ========================================
-// FORM VALIDATION & SUBMISSION
+// FORM VALIDATION & SUBMISSION - Web3Forms
 // ========================================
 
 const franchiseForm = document.getElementById('franchiseForm');
+const submitBtn = document.getElementById('submitBtn');
+const formMessage = document.getElementById('formMessage');
 
 if (franchiseForm) {
-    franchiseForm.addEventListener('submit', (e) => {
+    franchiseForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Basic form validation
-        const formData = new FormData(franchiseForm);
         let isValid = true;
-
-        // Check all required fields
         const requiredFields = franchiseForm.querySelectorAll('[required]');
+
         requiredFields.forEach(field => {
             if (!field.value.trim()) {
                 isValid = false;
                 field.style.borderColor = '#DB2777';
-
-                // Reset border color after 3 seconds
                 setTimeout(() => {
                     field.style.borderColor = 'transparent';
                 }, 3000);
             }
         });
 
-        if (isValid) {
-            // Here you would normally send the form data to a server
-            console.log('Form data:', Object.fromEntries(formData));
+        if (!isValid) {
+            showMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+            return;
+        }
 
-            // Show success message
-            alert('Merci pour votre candidature ! Notre équipe vous recontactera sous 48h.');
+        // Show loading state
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        submitBtn.disabled = true;
 
-            // Reset form
-            franchiseForm.reset();
-        } else {
-            alert('Veuillez remplir tous les champs obligatoires.');
+        try {
+            // Send to Web3Forms
+            const formData = new FormData(franchiseForm);
+
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Success!
+                showMessage('Merci pour votre candidature ! Notre équipe vous recontactera sous 48h.', 'success');
+                franchiseForm.reset();
+            } else {
+                // API error
+                showMessage('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.', 'error');
+                console.error('Web3Forms error:', result);
+            }
+        } catch (error) {
+            // Network error
+            showMessage('Erreur de connexion. Vérifiez votre connexion internet et réessayez.', 'error');
+            console.error('Network error:', error);
+        } finally {
+            // Reset button state
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            submitBtn.disabled = false;
         }
     });
+}
+
+// Show form message (success or error)
+function showMessage(message, type) {
+    if (formMessage) {
+        formMessage.textContent = message;
+        formMessage.className = 'form-message ' + type;
+        formMessage.style.display = 'block';
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }
 }
 
 // ========================================

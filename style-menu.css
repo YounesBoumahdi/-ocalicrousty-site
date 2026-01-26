@@ -9,6 +9,12 @@
     --white: #ffffff;
     --black: #000000;
     --text-dark: #1a1a1a;
+    /* Transitions et animations améliorées */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(236, 72, 153, 0.25);
+    --shadow-strong: 0 12px 40px rgba(236, 72, 153, 0.35);
 }
 
 * {
@@ -838,12 +844,20 @@ body {
     /* Menu header mobile */
     .menu-header {
         padding: 150px 20px 50px;
+        text-align: center;
+    }
+
+    .menu-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .menu-title-main {
         font-size: 68px;
         letter-spacing: -2px;
         margin-bottom: 20px;
+        text-align: center;
     }
 
     .menu-description-main {
@@ -852,6 +866,11 @@ body {
         color: var(--white);
         line-height: 1.6;
         text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    .menu-description-main br {
+        display: none;
     }
 
     /* Menu tabs mobile */
@@ -967,6 +986,15 @@ body {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 50px;
+        text-align: center;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+
+    .footer-logo-col {
+        align-items: center;
     }
 
     .footer-main {
@@ -980,10 +1008,16 @@ body {
     .footer-title {
         font-size: 32px;
         margin-bottom: 25px;
+        text-align: center;
     }
 
     .footer-links {
         gap: 15px;
+        align-items: center;
+    }
+
+    .footer-links li {
+        text-align: center;
     }
 
     .footer-links li a {
@@ -992,6 +1026,7 @@ body {
 
     .footer-social {
         gap: 18px;
+        justify-content: center;
     }
 
     .social-icon {
@@ -1053,16 +1088,19 @@ body {
     /* Menu header très petit */
     .menu-header {
         padding: 130px 15px 40px;
+        text-align: center;
     }
 
     .menu-title-main {
         font-size: 52px;
         margin-bottom: 18px;
+        text-align: center;
     }
 
     .menu-description-main {
         font-size: 16px;
         line-height: 1.5;
+        text-align: center;
     }
 
     /* Menu tabs très petit */

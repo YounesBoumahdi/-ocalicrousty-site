@@ -9,6 +9,12 @@
     --white: #ffffff;
     --black: #000000;
     --text-dark: #1a1a1a;
+    /* Transitions et animations améliorées */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(236, 72, 153, 0.25);
+    --shadow-strong: 0 12px 40px rgba(236, 72, 153, 0.35);
 }
 
 * {

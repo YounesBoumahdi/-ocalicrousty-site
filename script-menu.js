@@ -82,6 +82,18 @@ tabBtns.forEach(btn => {
         // Update active category
         menuCategories.forEach(cat => cat.classList.remove('active'));
         document.getElementById(targetCategory).classList.add('active');
+
+        // Scroll vers les produits pour les voir directement
+        const menuItemsSection = document.querySelector('.menu-items-section');
+        if (menuItemsSection) {
+            const offset = 20; // Petit espace en haut
+            const targetPosition = menuItemsSection.offsetTop - offset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
