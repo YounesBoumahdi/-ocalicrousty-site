@@ -1,0 +1,1477 @@
+@import "tailwindcss";
+
+/* ============================================================
+   O'CALI CROUSTY — DA « street néon nocturne »
+   Noir profond + rose néon (la vraie identité du board menu
+   O'Cali), typo display Anton, accents script Pacifico,
+   photos food plein écran, stickers de marque.
+   Structure : conventions des chaînes crousty (hero food
+   full-screen, statements, prix, étapes, mosaïque, adresses,
+   franchise, footer wordmark géant).
+   ============================================================ */
+
+:root {
+  --oc-black: #2b1120;
+  --oc-black-2: #38182a;
+  --oc-black-3: #452036;
+  --oc-ink: #fff5fa;
+  --oc-muted: #dcbfd0;
+  --oc-pink: #ff2d8d;
+  --oc-pink-deep: #c4125f;
+  --oc-pink-light: #ff7ac1;
+  --oc-orange: #ff6a3d;
+  --oc-line: rgba(255, 122, 193, 0.26);
+  --oc-grad: linear-gradient(100deg, var(--oc-pink) 0%, #ff4d6b 55%, var(--oc-orange) 120%);
+  --oc-font: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --oc-display: var(--font-anton), Impact, "Arial Narrow", sans-serif;
+  --oc-script: var(--font-pacifico), "Brush Script MT", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--oc-black);
+  color: var(--oc-ink);
+  font-family: var(--oc-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--oc-pink);
+  color: #fff;
+}
+
+.oc-landing {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: clip;
+  background:
+    radial-gradient(60rem 40rem at 85% 8%, rgba(255, 45, 141, 0.2), transparent 60%),
+    radial-gradient(50rem 36rem at 8% 45%, rgba(255, 106, 61, 0.12), transparent 60%),
+    radial-gradient(55rem 38rem at 90% 80%, rgba(255, 45, 141, 0.14), transparent 60%),
+    var(--oc-black);
+}
+
+.oc-section-inner {
+  width: min(100% - 2.5rem, 74rem);
+  margin-inline: auto;
+}
+
+/* ---------- Typo display / titres ---------- */
+.oc-h2 {
+  margin: 0 auto 1rem;
+  max-width: min(100%, 52rem);
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8.5vw, 4.6rem);
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+  text-align: center;
+  text-wrap: balance;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+}
+
+.oc-h2 em,
+.oc-neon {
+  font-style: normal;
+  color: var(--oc-pink);
+  text-shadow:
+    0 0 18px rgba(255, 45, 141, 0.55),
+    0 0 55px rgba(255, 45, 141, 0.35);
+}
+
+.oc-kicker {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: var(--oc-script);
+  font-size: clamp(1.25rem, 3.2vw, 1.7rem);
+  color: var(--oc-pink-light);
+  text-align: center;
+  transform: rotate(-2deg);
+}
+
+.oc-intro {
+  margin: 0 auto;
+  max-width: 36rem;
+  text-align: center;
+  color: var(--oc-muted);
+  font-size: clamp(0.98rem, 2.4vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.oc-section {
+  position: relative;
+  padding: clamp(4.5rem, 10vw, 7.5rem) 0;
+}
+
+.oc-section-header {
+  margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+/* ---------- Boutons ---------- */
+.oc-btn-pink,
+.oc-btn-white,
+.oc-btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.oc-btn-pink {
+  background: var(--oc-grad);
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(255, 122, 193, 0.35) inset,
+    0 10px 32px rgba(255, 45, 141, 0.45);
+}
+
+.oc-btn-pink:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 0 0 1px rgba(255, 122, 193, 0.5) inset,
+    0 16px 44px rgba(255, 45, 141, 0.6);
+}
+
+.oc-btn-white {
+  background: #fff;
+  color: #14060e;
+}
+
+.oc-btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 255, 255, 0.22);
+}
+
+.oc-btn-dark {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--oc-ink);
+  border: 1px solid var(--oc-line);
+  backdrop-filter: blur(8px);
+}
+
+.oc-btn-dark:hover {
+  border-color: rgba(255, 122, 193, 0.5);
+  background: rgba(255, 45, 141, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ---------- Nav ---------- */
+.oc-nav {
+  position: fixed;
+  top: max(0.8rem, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  width: min(100% - 1.5rem, 68rem);
+  padding: 0.55rem 0.7rem 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(43, 15, 31, 0.72);
+  border: 1px solid rgba(255, 122, 193, 0.22);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+}
+
+.oc-nav-logo img {
+  display: block;
+  height: 34px;
+  width: auto;
+  filter: drop-shadow(0 0 14px rgba(255, 45, 141, 0.6));
+}
+
+.oc-nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2.4vw, 1.9rem);
+}
+
+.oc-nav-links a {
+  color: rgba(255, 245, 250, 0.82);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.oc-nav-links a:hover,
+.oc-nav-links a[data-active="true"] {
+  color: var(--oc-pink-light);
+  text-shadow: 0 0 14px rgba(255, 45, 141, 0.6);
+}
+
+.oc-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.62rem 1.25rem;
+  border-radius: 999px;
+  background: var(--oc-grad);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 26px rgba(255, 45, 141, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.oc-nav-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 34px rgba(255, 45, 141, 0.65);
+}
+
+.oc-nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--oc-line);
+  background: rgba(255, 45, 141, 0.12);
+  color: var(--oc-ink);
+  cursor: pointer;
+}
+
+.oc-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(32, 11, 24, 0.97);
+  backdrop-filter: blur(20px);
+}
+
+.oc-mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.oc-mobile-menu a {
+  color: var(--oc-ink);
+  text-decoration: none;
+  font-family: var(--oc-display);
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.oc-mobile-menu a:hover {
+  color: var(--oc-pink);
+}
+
+.oc-mobile-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--oc-line);
+  background: rgba(255, 45, 141, 0.14);
+  color: var(--oc-ink);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+/* ---------- HERO full-screen food ---------- */
+.oc-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: clip;
+  isolation: isolate;
+}
+
+.oc-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.oc-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 34% 76%;
+  transform: scale(1.06);
+}
+
+.oc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60rem 42rem at 26% 58%, rgba(20, 5, 14, 0.72), rgba(20, 5, 14, 0.3) 55%, transparent 75%),
+    linear-gradient(92deg, rgba(24, 6, 17, 0.82) 0%, rgba(24, 6, 17, 0.5) 45%, rgba(24, 6, 17, 0.08) 72%, transparent 100%),
+    linear-gradient(180deg, rgba(30, 8, 21, 0.5) 0%, rgba(30, 8, 21, 0.14) 35%, rgba(35, 10, 25, 0.62) 78%, var(--oc-black) 100%),
+    radial-gradient(70rem 45rem at 78% 20%, rgba(255, 45, 141, 0.16), transparent 60%);
+}
+
+.oc-hero-content {
+  position: relative;
+  width: min(100% - 2.5rem, 74rem);
+  margin-inline: auto;
+  padding-bottom: clamp(6rem, 12vh, 8.5rem);
+}
+
+.oc-hero-script {
+  display: block;
+  font-family: var(--oc-script);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: var(--oc-pink-light);
+  text-shadow:
+    0 2px 10px rgba(10, 2, 7, 0.6),
+    0 0 22px rgba(255, 45, 141, 0.7);
+  transform: rotate(-2.5deg);
+  margin-bottom: 0.6rem;
+}
+
+.oc-hero-h1 {
+  margin: 0 0 1.1rem;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 11.5vw, 8.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: #fff;
+  text-wrap: balance;
+  text-shadow:
+    0 3px 14px rgba(10, 2, 7, 0.55),
+    0 10px 46px rgba(10, 2, 7, 0.5);
+}
+
+.oc-hero-h1 em {
+  font-style: normal;
+  color: var(--oc-pink);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.92);
+  text-shadow:
+    0 4px 16px rgba(10, 2, 7, 0.6),
+    0 0 26px rgba(255, 45, 141, 0.7),
+    0 0 70px rgba(255, 45, 141, 0.4);
+}
+
+.oc-hero-lead {
+  margin: 0 0 1.8rem;
+  max-width: 34rem;
+  color: rgba(255, 245, 250, 0.94);
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(10, 2, 7, 0.6);
+}
+
+.oc-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.oc-hero-badge {
+  position: absolute;
+  right: 0;
+  bottom: clamp(6rem, 12vh, 8.5rem);
+  width: clamp(90px, 12vw, 150px);
+  transform: rotate(8deg);
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+/* ---------- Ticker néon (bas de hero + séparateurs) ---------- */
+.oc-ticker {
+  position: relative;
+  z-index: 2;
+  overflow: clip;
+  padding: 0.8rem 0;
+  background: var(--oc-grad);
+  transform: rotate(-1.2deg) scale(1.02);
+  box-shadow: 0 12px 44px rgba(255, 45, 141, 0.35);
+}
+
+.oc-ticker--flat {
+  transform: none;
+}
+
+.oc-ticker-track {
+  display: flex;
+  gap: 2.6rem;
+  width: max-content;
+  animation: oc-ticker-scroll 26s linear infinite;
+  white-space: nowrap;
+}
+
+.oc-ticker-track span {
+  font-family: var(--oc-display);
+  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+@keyframes oc-ticker-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-ticker-track {
+    animation: none;
+  }
+}
+
+/* ---------- Statements (gros manifeste) ---------- */
+.oc-statements {
+  position: relative;
+  text-align: center;
+}
+
+.oc-statements .oc-line {
+  display: block;
+  font-family: var(--oc-display);
+  font-size: clamp(2.3rem, 8.8vw, 6rem);
+  line-height: 1.04;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+}
+
+.oc-statements .oc-line em {
+  font-style: normal;
+  color: var(--oc-pink);
+  text-shadow: 0 0 26px rgba(255, 45, 141, 0.55);
+}
+
+.oc-statements .oc-line--script {
+  font-family: var(--oc-script);
+  text-transform: none;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  color: var(--oc-pink-light);
+  transform: rotate(-2deg);
+  margin-top: 1.2rem;
+}
+
+.oc-sticker {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 26px rgba(0, 0, 0, 0.45));
+}
+
+/* ---------- Cartes signatures / menu ---------- */
+.oc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.oc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.4rem;
+  background: linear-gradient(170deg, var(--oc-black-3), var(--oc-black-2) 70%);
+  border: 1px solid var(--oc-line);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.oc-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 45, 141, 0.55);
+  box-shadow: 0 24px 60px rgba(255, 45, 141, 0.22);
+}
+
+.oc-card-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.oc-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.oc-card:hover .oc-card-photo img {
+  transform: scale(1.06);
+}
+
+.oc-card-tag {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  padding: 0.32rem 0.8rem;
+  border-radius: 999px;
+  background: var(--oc-grad);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(255, 45, 141, 0.45);
+}
+
+.oc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.oc-card-title {
+  margin: 0;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+}
+
+.oc-card-desc {
+  margin: 0;
+  color: var(--oc-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.oc-price {
+  font-family: var(--oc-display);
+  font-size: 1.25rem;
+  color: var(--oc-pink);
+  text-shadow: 0 0 16px rgba(255, 45, 141, 0.5);
+  white-space: nowrap;
+}
+
+.oc-section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4.5vw, 3rem);
+}
+
+/* ---------- Bloc prix IMBATTABLE ---------- */
+.oc-imbattable {
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(55rem 40rem at 50% 0%, rgba(255, 255, 255, 0.14), transparent 60%),
+    linear-gradient(160deg, var(--oc-pink-deep) 0%, var(--oc-pink) 52%, var(--oc-orange) 135%);
+}
+
+.oc-imbattable-price {
+  display: block;
+  font-family: var(--oc-display);
+  font-size: clamp(4.4rem, 17vw, 12rem);
+  line-height: 0.95;
+  color: #fff;
+  text-align: center;
+  text-shadow:
+    0 0 34px rgba(255, 255, 255, 0.45),
+    0 14px 60px rgba(80, 5, 40, 0.45);
+}
+
+.oc-imbattable-sub {
+  display: block;
+  margin-top: 0.4rem;
+  text-align: center;
+  font-family: var(--oc-script);
+  font-size: clamp(1.3rem, 3.6vw, 2rem);
+  color: #fff;
+  transform: rotate(-2deg);
+}
+
+.oc-imbattable-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.oc-imbattable-words span {
+  font-family: var(--oc-display);
+  font-size: clamp(1.5rem, 4.6vw, 2.6rem);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.oc-imbattable-words span:nth-child(2) {
+  color: #3b0e26;
+  text-shadow: none;
+}
+
+/* ---------- Étapes 1-2-3 ---------- */
+.oc-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.oc-step {
+  position: relative;
+  padding: 1.8rem 1.5rem 1.6rem;
+  border-radius: 1.4rem;
+  background: linear-gradient(170deg, var(--oc-black-3), var(--oc-black-2) 75%);
+  border: 1px solid var(--oc-line);
+  overflow: hidden;
+}
+
+.oc-step-num {
+  display: block;
+  font-family: var(--oc-display);
+  font-size: clamp(3.4rem, 8vw, 5.2rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--oc-pink);
+  text-shadow: 0 0 30px rgba(255, 45, 141, 0.35);
+  margin-bottom: 0.7rem;
+}
+
+.oc-step h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--oc-ink);
+}
+
+.oc-step p {
+  margin: 0;
+  color: var(--oc-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ---------- Mosaïque virale ---------- */
+.oc-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(140px, 16vw, 230px);
+  gap: clamp(0.6rem, 1.4vw, 1rem);
+}
+
+.oc-mosaic a,
+.oc-mosaic-cell {
+  position: relative;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  border: 1px solid var(--oc-line);
+  display: block;
+}
+
+.oc-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.oc-mosaic a:hover img,
+.oc-mosaic-cell:hover img {
+  transform: scale(1.07);
+}
+
+.oc-mosaic-cell--tall {
+  grid-row: span 2;
+}
+
+/* ---------- Section Instagram ---------- */
+.oc-insta {
+  position: relative;
+  overflow: clip;
+  padding: clamp(4.5rem, 10vw, 7rem) 0;
+  text-align: center;
+  background:
+    radial-gradient(50rem 34rem at 50% -4rem, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(150deg, #7b1fa8 -20%, var(--oc-pink-deep) 25%, var(--oc-pink) 60%, var(--oc-orange) 130%);
+}
+
+.oc-insta-shots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.8rem, 2.4vw, 2rem);
+  margin-top: clamp(2rem, 4.5vw, 3rem);
+}
+
+.oc-insta-shot {
+  position: relative;
+  display: block;
+  width: clamp(150px, 24vw, 300px);
+  aspect-ratio: 1;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 22px 55px rgba(60, 4, 32, 0.45);
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+
+.oc-insta-shot:nth-child(2) {
+  transform: rotate(2.5deg) translateY(-10px);
+  z-index: 2;
+}
+
+.oc-insta-shot:nth-child(3) {
+  transform: rotate(5deg);
+}
+
+.oc-insta-shot:hover {
+  transform: rotate(0deg) scale(1.06);
+  z-index: 3;
+}
+
+.oc-insta-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oc-insta-heart {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.55rem;
+  font-size: 1.05rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 640px) {
+  .oc-insta-shots {
+    flex-wrap: wrap;
+  }
+
+  .oc-insta-shot {
+    width: clamp(130px, 40vw, 170px);
+  }
+}
+
+/* ---------- Adresses / Trouve ton O'Cali ---------- */
+.oc-resto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.oc-resto-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background: linear-gradient(170deg, var(--oc-black-3), var(--oc-black-2) 70%);
+  border: 1px solid var(--oc-line);
+}
+
+.oc-resto-card .oc-card-photo {
+  aspect-ratio: 16 / 10;
+}
+
+/* Mini-galerie photos du resto : vignettes cliquables sous la photo principale */
+.oc-resto-gallery {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.9rem 1.2rem 0;
+}
+
+.oc-resto-gallery button {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--oc-line);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.oc-resto-gallery button:hover {
+  opacity: 1;
+}
+
+.oc-resto-gallery button.is-active {
+  opacity: 1;
+  border-color: var(--oc-pink);
+  box-shadow: 0 0 0 1px var(--oc-pink), 0 6px 18px rgba(255, 45, 141, 0.3);
+}
+
+.oc-resto-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.oc-resto-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0.6rem 0 1rem;
+  color: var(--oc-muted);
+  font-size: 0.92rem;
+}
+
+.oc-resto-meta strong {
+  color: var(--oc-ink);
+}
+
+.oc-badge-open {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  padding: 0.32rem 0.8rem;
+  border-radius: 999px;
+  background: #12c26d;
+  color: #04170d;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oc-badge-soon {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 45, 141, 0.14);
+  border: 1px solid rgba(255, 122, 193, 0.4);
+  color: var(--oc-pink-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.oc-counter {
+  font-family: var(--oc-display);
+  font-size: clamp(3.2rem, 9vw, 5.6rem);
+  color: var(--oc-pink);
+  text-shadow: 0 0 28px rgba(255, 45, 141, 0.55);
+  line-height: 1;
+}
+
+/* ---------- Bande franchise sunset ---------- */
+.oc-franchise-band {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  padding: clamp(5rem, 12vw, 9rem) 0;
+  text-align: center;
+}
+
+.oc-franchise-band .oc-h2 {
+  text-shadow: 0 4px 30px rgba(10, 2, 7, 0.85);
+}
+
+.oc-franchise-band .oc-h2 em {
+  text-shadow:
+    0 4px 26px rgba(10, 2, 7, 0.9),
+    0 0 40px rgba(255, 45, 141, 0.55);
+}
+
+.oc-franchise-band .oc-kicker,
+.oc-franchise-band .oc-intro {
+  text-shadow: 0 2px 14px rgba(10, 2, 7, 0.9);
+}
+
+.oc-franchise-band > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oc-franchise-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48rem 32rem at 50% 52%, rgba(18, 5, 13, 0.68), rgba(18, 5, 13, 0.3) 68%, transparent 100%),
+    linear-gradient(180deg, var(--oc-black) 0%, rgba(35, 12, 25, 0.3) 30%, rgba(35, 12, 25, 0.4) 70%, var(--oc-black) 100%);
+}
+
+/* ---------- Duo bandes photo + texte (pages internes) ---------- */
+.oc-duo {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  border: 1px solid var(--oc-line);
+}
+
+.oc-duo--dark {
+  background: linear-gradient(170deg, var(--oc-black-3), var(--oc-black-2));
+}
+
+.oc-duo--pink {
+  background: linear-gradient(135deg, var(--oc-pink-deep), var(--oc-pink) 65%, var(--oc-orange) 130%);
+}
+
+.oc-duo--reverse {
+  direction: rtl;
+}
+
+.oc-duo--reverse > * {
+  direction: ltr;
+}
+
+.oc-duo-media {
+  min-height: clamp(260px, 34vw, 460px);
+}
+
+.oc-duo-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.oc-duo-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: clamp(1.8rem, 4.5vw, 3.5rem);
+}
+
+.oc-duo-kicker {
+  font-family: var(--oc-script);
+  font-size: 1.2rem;
+  color: var(--oc-pink-light);
+  transform: rotate(-2deg);
+}
+
+.oc-duo--pink .oc-duo-kicker {
+  color: #ffd9ec;
+}
+
+.oc-duo-h2 {
+  margin: 0;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 5.4vw, 3.2rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+}
+
+.oc-duo-p {
+  margin: 0;
+  color: var(--oc-muted);
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+.oc-duo--pink .oc-duo-p {
+  color: rgba(255, 245, 250, 0.92);
+}
+
+.oc-duo-stat {
+  font-family: var(--oc-display);
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  color: var(--oc-pink);
+  text-shadow: 0 0 24px rgba(255, 45, 141, 0.5);
+  line-height: 1;
+}
+
+.oc-duo--pink .oc-duo-stat {
+  color: #fff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Page hero (pages internes) ---------- */
+.oc-page-hero {
+  position: relative;
+  padding: clamp(9rem, 18vh, 12rem) 0 clamp(3rem, 7vw, 5rem);
+  text-align: center;
+  overflow: clip;
+  background:
+    radial-gradient(55rem 34rem at 50% -6rem, rgba(255, 45, 141, 0.22), transparent 65%),
+    var(--oc-black);
+  border-bottom: 1px solid var(--oc-line);
+}
+
+.oc-page-hero h1 {
+  margin: 0 auto 1rem;
+  max-width: 60rem;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 9.5vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+  text-wrap: balance;
+  padding-inline: 1.25rem;
+}
+
+.oc-page-hero h1 em {
+  font-style: normal;
+  color: var(--oc-pink);
+  text-shadow: 0 0 24px rgba(255, 45, 141, 0.6);
+}
+
+.oc-page-hero p {
+  margin: 0 auto 1.6rem;
+  max-width: 38rem;
+  color: var(--oc-muted);
+  line-height: 1.65;
+  padding-inline: 1.25rem;
+}
+
+.oc-page-hero .oc-hero-ctas {
+  justify-content: center;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Board menu réel ---------- */
+.oc-board {
+  border-radius: 1.6rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 122, 193, 0.35);
+  box-shadow: 0 30px 90px rgba(255, 45, 141, 0.18);
+}
+
+.oc-board img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Filtres carte ---------- */
+.oc-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.oc-filter {
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--oc-line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--oc-muted);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.oc-filter:hover {
+  color: var(--oc-ink);
+  border-color: rgba(255, 122, 193, 0.5);
+}
+
+.oc-filter[data-active="true"] {
+  background: var(--oc-grad);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 45, 141, 0.45);
+}
+
+/* ---------- Formulaire ---------- */
+.oc-form {
+  width: min(100%, 40rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.oc-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.oc-input,
+.oc-textarea {
+  width: 100%;
+  padding: 0.95rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--oc-line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--oc-ink);
+  font-family: var(--oc-font);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.oc-input::placeholder,
+.oc-textarea::placeholder {
+  color: rgba(185, 156, 171, 0.75);
+}
+
+.oc-input:focus,
+.oc-textarea:focus {
+  border-color: var(--oc-pink);
+  box-shadow: 0 0 0 4px rgba(255, 45, 141, 0.18);
+}
+
+.oc-textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+/* ---------- CTA final + footer ---------- */
+.oc-dark-wrap {
+  position: relative;
+  background:
+    radial-gradient(60rem 40rem at 50% 0%, rgba(255, 45, 141, 0.2), transparent 60%),
+    #200b18;
+  border-top: 1px solid var(--oc-line);
+  overflow: clip;
+}
+
+.oc-cta-final {
+  padding: clamp(4.5rem, 10vw, 7rem) 1.25rem 0;
+  text-align: center;
+}
+
+.oc-cta-final-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.oc-footer {
+  position: relative;
+  padding-top: clamp(4rem, 8vw, 6rem);
+}
+
+.oc-footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  width: min(100% - 2.5rem, 74rem);
+  margin-inline: auto;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.oc-footer-brand img {
+  height: 44px;
+  width: auto;
+  filter: drop-shadow(0 0 16px rgba(255, 45, 141, 0.55));
+}
+
+.oc-footer-tagline {
+  margin: 1rem 0 0;
+  font-family: var(--oc-script);
+  font-size: 1.15rem;
+  color: var(--oc-pink-light);
+  line-height: 1.5;
+  transform: rotate(-2deg);
+}
+
+.oc-footer-cols {
+  display: flex;
+  gap: clamp(2rem, 6vw, 5rem);
+  flex-wrap: wrap;
+}
+
+.oc-footer-col h3 {
+  margin: 0 0 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oc-pink-light);
+}
+
+.oc-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.oc-footer-col a {
+  color: rgba(255, 245, 250, 0.75);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
+}
+
+.oc-footer-col a:hover {
+  color: var(--oc-pink-light);
+}
+
+.oc-footer-wordmark-wrap {
+  overflow: clip;
+  line-height: 0.8;
+}
+
+.oc-footer-wordmark {
+  position: relative;
+  font-family: var(--oc-display);
+  font-size: clamp(5.2rem, 21.5vw, 21rem);
+  line-height: 0.82;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, #ff7ac1 0%, var(--oc-pink) 45%, #6b0f3e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform-origin: bottom center;
+  user-select: none;
+}
+
+.oc-footer-flame {
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  width: clamp(28px, 4.5vw, 68px);
+  aspect-ratio: 3 / 4;
+  background: url("/img/st-flamme.png") center / contain no-repeat;
+  animation: oc-flame 2.4s ease-in-out infinite;
+}
+
+@keyframes oc-flame {
+  0%,
+  100% {
+    transform: scale(1) rotate(-4deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.14) rotate(4deg);
+    opacity: 1;
+  }
+}
+
+.oc-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem 2rem;
+  width: min(100% - 2.5rem, 74rem);
+  margin-inline: auto;
+  padding: 1.4rem 0 1.8rem;
+  border-top: 1px solid var(--oc-line);
+  color: rgba(185, 156, 171, 0.8);
+  font-size: 0.8rem;
+}
+
+.oc-footer-manger a {
+  color: var(--oc-pink-light);
+}
+
+/* ---------- Légal ---------- */
+.oc-legal {
+  width: min(100% - 2.5rem, 46rem);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(4rem, 8vw, 6rem);
+  color: var(--oc-muted);
+  line-height: 1.7;
+}
+
+.oc-legal h2 {
+  margin: 2.2rem 0 0.7rem;
+  font-family: var(--oc-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--oc-ink);
+}
+
+.oc-legal a {
+  color: var(--oc-pink-light);
+}
+
+/* ============================================================
+   RESPONSIVE — mobile first ajustements
+   ============================================================ */
+@media (max-width: 1023px) {
+  .oc-nav-links {
+    display: none;
+  }
+
+  .oc-nav-burger {
+    display: inline-flex;
+  }
+
+  .oc-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(150px, 28vw, 260px);
+  }
+}
+
+@media (max-width: 860px) {
+  .oc-steps,
+  .oc-resto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cartes : carrousel horizontal à swipe (plein bord écran) au lieu d'une pile verticale interminable */
+  .oc-cards {
+    display: flex;
+    gap: 0.9rem;
+    margin-inline: -1.25rem;
+    padding: 0.4rem 1.25rem 1.1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .oc-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .oc-cards > .oc-card {
+    flex: 0 0 min(78%, 20rem);
+    scroll-snap-align: start;
+  }
+
+  .oc-duo,
+  .oc-duo--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .oc-duo-media {
+    min-height: 240px;
+  }
+
+  .oc-hero-badge {
+    display: none;
+  }
+
+  .oc-footer-top {
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .oc-statements .oc-sticker {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .oc-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .oc-hero-ctas .oc-btn-pink,
+  .oc-hero-ctas .oc-btn-dark,
+  .oc-cta-final-btns .oc-btn-pink,
+  .oc-cta-final-btns .oc-btn-white {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   HERO mobile + tablette portrait
+   (en fin de fichier pour gagner la cascade sur les règles de base)
+   ============================================================ */
+@media (max-width: 700px), (max-width: 1023px) and (orientation: portrait) {
+  /* Cadrage sur les barquettes : translateY pousse la nourriture vers le ticker,
+     le bas sombre de la photo sort du cadre */
+  .oc-hero-bg img {
+    object-position: 25% 78%;
+    transform: translateY(10%) scale(1.18);
+    transform-origin: 52% 100%;
+    filter: saturate(1.12) brightness(1.18) contrast(1.04);
+  }
+
+  /* Le hero remplit exactement l'écran visible (svh = hauteur avec barre navigateur) :
+     ticker calé en bas du premier écran, la nourriture absorbe l'espace en plus */
+  .oc-hero {
+    justify-content: space-between;
+    min-height: 100svh;
+  }
+
+  .oc-hero-content {
+    padding-top: 8.2rem;
+    padding-bottom: 0;
+  }
+
+  /* Chaque bloc respire : kicker, titre, accroche, boutons */
+  .oc-hero-script {
+    margin-bottom: 1.2rem;
+  }
+
+  .oc-hero-h1 {
+    margin-bottom: 2.2rem;
+  }
+
+  .oc-hero-lead {
+    margin-bottom: 2.6rem;
+  }
+
+  .oc-hero-ctas {
+    gap: 1.1rem;
+  }
+
+  /* Respiration entre les boutons et la nourriture, ticker visible sur le premier écran */
+  .oc-hero .oc-ticker {
+    margin-top: 8.5rem;
+  }
+
+  /* Voile : opaque derrière le texte, transparent sur la nourriture, noir à la jointure */
+  .oc-hero::before {
+    background:
+      linear-gradient(180deg, rgba(24, 6, 17, 0.82) 0%, rgba(24, 6, 17, 0.68) 34%, rgba(24, 6, 17, 0.54) 50%, rgba(24, 6, 17, 0.4) 64%, rgba(28, 7, 19, 0.14) 76%, rgba(28, 7, 19, 0) 92%, rgba(28, 7, 19, 0.5) 97%, var(--oc-black) 100%),
+      radial-gradient(46rem 34rem at 55% 78%, rgba(255, 140, 180, 0.14), transparent 65%),
+      radial-gradient(40rem 30rem at 70% 15%, rgba(255, 45, 141, 0.16), transparent 60%);
+  }
+}
