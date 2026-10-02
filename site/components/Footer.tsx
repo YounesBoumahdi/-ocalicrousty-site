@@ -67,6 +67,12 @@ export default function Footer() {
               mangerbouger.fr
             </a>
           </span>
+          <span>
+            Site réalisé par{" "}
+            <a href="https://yukstudio.fr" target="_blank" rel="noopener" style={{ color: "inherit" }}>
+              YUK Studio
+            </a>
+          </span>
         </div>
       </footer>
     </div>
